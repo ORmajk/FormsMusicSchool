@@ -25,7 +25,7 @@
             // btnCourses
             // 
             this.btnCourses.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnCourses.Location = new System.Drawing.Point(36, 13);
+            this.btnCourses.Location = new System.Drawing.Point(29, 13);
             this.btnCourses.Name = "btnCourses";
             this.btnCourses.Size = new System.Drawing.Size(197, 62);
             this.btnCourses.TabIndex = 0;
@@ -36,7 +36,7 @@
             // btnPersonalInfo
             // 
             this.btnPersonalInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnPersonalInfo.Location = new System.Drawing.Point(36, 90);
+            this.btnPersonalInfo.Location = new System.Drawing.Point(29, 81);
             this.btnPersonalInfo.Name = "btnPersonalInfo";
             this.btnPersonalInfo.Size = new System.Drawing.Size(197, 62);
             this.btnPersonalInfo.TabIndex = 1;
@@ -67,7 +67,7 @@
             // 
             this.PnlOthersButts.Controls.Add(this.btnCourses);
             this.PnlOthersButts.Controls.Add(this.btnPersonalInfo);
-            this.PnlOthersButts.Location = new System.Drawing.Point(86, 23);
+            this.PnlOthersButts.Location = new System.Drawing.Point(89, 20);
             this.PnlOthersButts.Name = "PnlOthersButts";
             this.PnlOthersButts.Size = new System.Drawing.Size(252, 178);
             this.PnlOthersButts.TabIndex = 4;
