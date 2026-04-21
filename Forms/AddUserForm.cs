@@ -1,147 +1,139 @@
-﻿using System;
+﻿using MusicSchoolApp.Models;
+using MusicSchoolApp.Services;
+using System;
 using System.Linq;
 using System.Windows.Forms;
-using MusicSchoolApp.Services;
 
 namespace MusicSchoolApp.Forms
 {
     public partial class AddUserForm : Form
     {
-        private DataService _service;
+        private DataService service;
+        private int userId;
+        private string currentUserRole;
 
         public AddUserForm(DataService service)
         {
             InitializeComponent();
-            _service = service;
-            LoadComboBoxes();
+            this.service = service;
+            this.userId = 0;
+            this.currentUserRole = "";
+
+            LoadRoles();
+            LoadBenefits();
+            this.Text = "Добавление нового пользователя";
         }
 
-        private void LoadComboBoxes()
+        public AddUserForm(DataService service, int userId, string currentUserRole)
         {
-            try
-            {
-                // Загрузка ролей
-                var roles = _service.GetAllRoles();
-                cmbRole.DataSource = roles;
-                cmbRole.DisplayMember = "RoleName";
-                cmbRole.ValueMember = "Id";
-                cmbRole.DropDownStyle = ComboBoxStyle.DropDownList;
+            InitializeComponent();
+            this.service = service;
+            this.userId = userId;
+            this.currentUserRole = currentUserRole;
 
-                // Загрузка льгот
-                var benefits = _service.GetAllBenefits();
-                cmbBenefit.DataSource = benefits;
-                cmbBenefit.DisplayMember = "BenefitName";
-                cmbBenefit.ValueMember = "Id";
-                cmbBenefit.DropDownStyle = ComboBoxStyle.DropDownList;
+            LoadRoles();
+            LoadBenefits();
+            LoadUserData();
+            this.Text = "Редактирование пользователя";
+        }
 
-                // Добавляем пустой пункт для льготы
-                cmbBenefit.SelectedIndex = -1;
-            }
-            catch (Exception ex)
+        private void LoadRoles()
+        {
+            var roles = service.GetAllRoles();
+            cmbRole.DisplayMember = "RoleName";
+            cmbRole.ValueMember = "Id";
+            cmbRole.DataSource = roles;
+        }
+
+        private void LoadBenefits()
+        {
+            var benefits = service.GetAllBenefits();
+            benefits.Insert(0, new Benefit { Id = 0, BenefitName = "Нет" });
+            cmbBenefit.DisplayMember = "BenefitName";
+            cmbBenefit.ValueMember = "Id";
+            cmbBenefit.DataSource = benefits;
+        }
+
+        private void LoadUserData()
+        {
+            if (userId > 0)
             {
-                MessageBox.Show($"Ошибка загрузки списков: {ex.Message}", "Ошибка",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                var user = service.GetUserById(userId);
+                if (user != null)
+                {
+                    txtSurname.Text = user.Surname;
+                    txtName.Text = user.Name;
+                    txtPatronymic.Text = user.Patronymic ?? "";
+                    txtPhone.Text = user.Number;
+                    txtEmail.Text = user.Email ?? "";
+                    txtLogin.Text = user.Login;
+                    txtPassword.Text = user.Password;
+                    cmbRole.SelectedValue = user.RoleId;
+                    cmbBenefit.SelectedValue = user.BenefitId ?? 0;
+                }
             }
         }
 
-        private bool ValidateForm()
+        private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtSurname.Text))
-            {
-                MessageBox.Show("Введите фамилию!", "Ошибка",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtSurname.Focus();
-                return false;
-            }
-
-            if (string.IsNullOrWhiteSpace(txtName.Text))
-            {
-                MessageBox.Show("Введите имя!", "Ошибка",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtName.Focus();
-                return false;
-            }
-
-            if (string.IsNullOrWhiteSpace(txtLogin.Text))
-            {
-                MessageBox.Show("Введите логин!", "Ошибка",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtLogin.Focus();
-                return false;
-            }
-
-            if (string.IsNullOrWhiteSpace(txtPassword.Text))
-            {
-                MessageBox.Show("Введите пароль!", "Ошибка",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtPassword.Focus();
-                return false;
-            }
-
-            if (cmbRole.SelectedItem == null)
-            {
-                MessageBox.Show("Выберите роль пользователя!", "Ошибка",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                cmbRole.Focus();
-                return false;
-            }
-
-            return true;
-        }
-
-
-        private void BtnCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void ChkShowPassword_CheckedChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void grpUserInfo_Enter(object sender, EventArgs e)
-        {
-
+            DialogResult = DialogResult.Cancel;
+            Close();
         }
 
         private void btnSave_Click_1(object sender, EventArgs e)
         {
+            // Валидация
+            if (string.IsNullOrWhiteSpace(txtSurname.Text) ||
+                string.IsNullOrWhiteSpace(txtName.Text) ||
+                string.IsNullOrWhiteSpace(txtPhone.Text) ||
+                string.IsNullOrWhiteSpace(txtLogin.Text) ||
+                string.IsNullOrWhiteSpace(txtPassword.Text))
+            {
+                MessageBox.Show("Заполните все обязательные поля", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Проверка уникальности логина
+            if (userId == 0 && service.IsLoginExists(txtLogin.Text.Trim()))
+            {
+                MessageBox.Show("Пользователь с таким логином уже существует", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
-                if (!ValidateForm())
-                    return;
-
-                // Создание нового пользователя
-                var newUser = new Models.User
+                var user = new User
                 {
+                    Id = userId,
                     Surname = txtSurname.Text.Trim(),
                     Name = txtName.Text.Trim(),
-                    Patronymic = txtPatronymic.Text.Trim(),
+                    Patronymic = string.IsNullOrWhiteSpace(txtPatronymic.Text) ? null : txtPatronymic.Text.Trim(),
                     Number = txtPhone.Text.Trim(),
-                    Email = txtEmail.Text.Trim(),
+                    Email = string.IsNullOrWhiteSpace(txtEmail.Text) ? null : txtEmail.Text.Trim(),
                     Login = txtLogin.Text.Trim(),
+                    Password = txtPassword.Text.Trim(),
                     RoleId = (int)cmbRole.SelectedValue,
-                    BenefitId = cmbBenefit.SelectedValue != null ? (int?)cmbBenefit.SelectedValue : null
+                    BenefitId = (int)cmbBenefit.SelectedValue == 0 ? (int?)null : (int)cmbBenefit.SelectedValue
                 };
 
-                _service.AddUser(newUser);
-
-                MessageBox.Show("Пользователь успешно добавлен!", "Успех",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (userId == 0)
+                    service.AddUser(user);
+                else
+                    service.UpdateUser(user);
 
                 DialogResult = DialogResult.OK;
-                this.Close();
+                Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка сохранения: {ex.Message}", "Ошибка",
+                MessageBox.Show($"Ошибка при сохранении: {ex.Message}", "Ошибка",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void btnCancel_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        // Удалите методы grpUserInfo_Enter, btnSave_Click_1, btnCancel_Click_1
+        // Они не нужны, используйте btnSave_Click и btnCancel_Click
     }
 }
