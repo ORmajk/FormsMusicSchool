@@ -131,6 +131,7 @@
             this.cmbTeacher.Name = "cmbTeacher";
             this.cmbTeacher.Size = new System.Drawing.Size(250, 21);
             this.cmbTeacher.TabIndex = 11;
+            this.cmbTeacher.SelectedIndexChanged += new System.EventHandler(this.cmbTeacher_SelectedIndexChanged);
             // 
             // btnSave
             // 

@@ -27,15 +27,6 @@ namespace MusicSchoolApp.Forms
             dgvCart.Columns["Id"].Visible = false;
         }
 
-        private void btnCheckout_Click(object sender, EventArgs e)
-        {
-            using (var service = new DataService())
-                foreach (var c in cart)
-                    service.AddContract(studentId, c.Id, c.Price);
-            DialogResult = DialogResult.OK;
-            Close();
-        }
-
         private void btnRemove_Click(object sender, EventArgs e)
         {
             if (dgvCart.CurrentRow != null && dgvCart.CurrentRow.Index < cart.Count)

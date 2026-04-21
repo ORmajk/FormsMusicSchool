@@ -34,7 +34,6 @@
             this.btnCheckout.TabIndex = 1;
             this.btnCheckout.Text = "Оформить";
             this.btnCheckout.UseVisualStyleBackColor = true;
-            this.btnCheckout.Click += new System.EventHandler(this.btnCheckout_Click);
             // 
             // btnRemove
             // 

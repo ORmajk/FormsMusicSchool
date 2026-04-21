@@ -13,7 +13,6 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.ComboBox cmbRole;
         private System.Windows.Forms.ComboBox cmbBenefit;
-        private System.Windows.Forms.CheckBox chkShowPassword;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.GroupBox grpUserInfo;
@@ -31,28 +30,27 @@
         private void InitializeComponent()
         {
             this.grpUserInfo = new System.Windows.Forms.GroupBox();
+            this.lblSurname = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
+            this.lblPatronymic = new System.Windows.Forms.Label();
+            this.lblPhone = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
             this.txtSurname = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtPatronymic = new System.Windows.Forms.TextBox();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.grpAccessInfo = new System.Windows.Forms.GroupBox();
-            this.txtLogin = new System.Windows.Forms.TextBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.chkShowPassword = new System.Windows.Forms.CheckBox();
-            this.cmbRole = new System.Windows.Forms.ComboBox();
-            this.cmbBenefit = new System.Windows.Forms.ComboBox();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.lblSurname = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
-            this.lblPatronymic = new System.Windows.Forms.Label();
-            this.lblPhone = new System.Windows.Forms.Label();
-            this.lblEmail = new System.Windows.Forms.Label();
             this.lblLogin = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblRole = new System.Windows.Forms.Label();
             this.lblBenefit = new System.Windows.Forms.Label();
+            this.txtLogin = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.cmbRole = new System.Windows.Forms.ComboBox();
+            this.cmbBenefit = new System.Windows.Forms.ComboBox();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.grpUserInfo.SuspendLayout();
             this.grpAccessInfo.SuspendLayout();
             this.SuspendLayout();
@@ -77,135 +75,6 @@
             this.grpUserInfo.TabIndex = 0;
             this.grpUserInfo.TabStop = false;
             this.grpUserInfo.Text = "Личная информация";
-            this.grpUserInfo.Enter += new System.EventHandler(this.grpUserInfo_Enter);
-            // 
-            // txtSurname
-            // 
-            this.txtSurname.Location = new System.Drawing.Point(90, 22);
-            this.txtSurname.Margin = new System.Windows.Forms.Padding(2);
-            this.txtSurname.Name = "txtSurname";
-            this.txtSurname.Size = new System.Drawing.Size(241, 20);
-            this.txtSurname.TabIndex = 0;
-            // 
-            // txtName
-            // 
-            this.txtName.Location = new System.Drawing.Point(90, 48);
-            this.txtName.Margin = new System.Windows.Forms.Padding(2);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(241, 20);
-            this.txtName.TabIndex = 1;
-            // 
-            // txtPatronymic
-            // 
-            this.txtPatronymic.Location = new System.Drawing.Point(90, 74);
-            this.txtPatronymic.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPatronymic.Name = "txtPatronymic";
-            this.txtPatronymic.Size = new System.Drawing.Size(241, 20);
-            this.txtPatronymic.TabIndex = 2;
-            // 
-            // txtPhone
-            // 
-            this.txtPhone.Location = new System.Drawing.Point(90, 100);
-            this.txtPhone.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(241, 20);
-            this.txtPhone.TabIndex = 3;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(90, 126);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(2);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(241, 20);
-            this.txtEmail.TabIndex = 4;
-            // 
-            // grpAccessInfo
-            // 
-            this.grpAccessInfo.Controls.Add(this.lblLogin);
-            this.grpAccessInfo.Controls.Add(this.lblPassword);
-            this.grpAccessInfo.Controls.Add(this.lblRole);
-            this.grpAccessInfo.Controls.Add(this.lblBenefit);
-            this.grpAccessInfo.Controls.Add(this.txtLogin);
-            this.grpAccessInfo.Controls.Add(this.txtPassword);
-            this.grpAccessInfo.Controls.Add(this.chkShowPassword);
-            this.grpAccessInfo.Controls.Add(this.cmbRole);
-            this.grpAccessInfo.Controls.Add(this.cmbBenefit);
-            this.grpAccessInfo.Location = new System.Drawing.Point(9, 177);
-            this.grpAccessInfo.Margin = new System.Windows.Forms.Padding(2);
-            this.grpAccessInfo.Name = "grpAccessInfo";
-            this.grpAccessInfo.Padding = new System.Windows.Forms.Padding(2);
-            this.grpAccessInfo.Size = new System.Drawing.Size(345, 162);
-            this.grpAccessInfo.TabIndex = 1;
-            this.grpAccessInfo.TabStop = false;
-            this.grpAccessInfo.Text = "Доступ и права";
-            // 
-            // txtLogin
-            // 
-            this.txtLogin.Location = new System.Drawing.Point(90, 22);
-            this.txtLogin.Margin = new System.Windows.Forms.Padding(2);
-            this.txtLogin.Name = "txtLogin";
-            this.txtLogin.Size = new System.Drawing.Size(241, 20);
-            this.txtLogin.TabIndex = 0;
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(90, 48);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(211, 20);
-            this.txtPassword.TabIndex = 1;
-            // 
-            // chkShowPassword
-            // 
-            this.chkShowPassword.Location = new System.Drawing.Point(308, 48);
-            this.chkShowPassword.Margin = new System.Windows.Forms.Padding(2);
-            this.chkShowPassword.Name = "chkShowPassword";
-            this.chkShowPassword.Size = new System.Drawing.Size(22, 18);
-            this.chkShowPassword.TabIndex = 2;
-            this.chkShowPassword.Text = "Показать пароль";
-            // 
-            // cmbRole
-            // 
-            this.cmbRole.Location = new System.Drawing.Point(90, 77);
-            this.cmbRole.Margin = new System.Windows.Forms.Padding(2);
-            this.cmbRole.Name = "cmbRole";
-            this.cmbRole.Size = new System.Drawing.Size(241, 21);
-            this.cmbRole.TabIndex = 3;
-            // 
-            // cmbBenefit
-            // 
-            this.cmbBenefit.Location = new System.Drawing.Point(90, 105);
-            this.cmbBenefit.Margin = new System.Windows.Forms.Padding(2);
-            this.cmbBenefit.Name = "cmbBenefit";
-            this.cmbBenefit.Size = new System.Drawing.Size(241, 21);
-            this.cmbBenefit.TabIndex = 4;
-            // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.LightGreen;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Location = new System.Drawing.Point(98, 349);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 28);
-            this.btnSave.TabIndex = 2;
-            this.btnSave.Text = "Сохранить";
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.BackColor = System.Drawing.Color.LightGray;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Location = new System.Drawing.Point(193, 349);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 28);
-            this.btnCancel.TabIndex = 0;
-            this.btnCancel.Text = "Отмена";
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click_1);
             // 
             // lblSurname
             // 
@@ -257,6 +126,65 @@
             this.lblEmail.TabIndex = 13;
             this.lblEmail.Text = "Email:";
             // 
+            // txtSurname
+            // 
+            this.txtSurname.Location = new System.Drawing.Point(90, 22);
+            this.txtSurname.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSurname.Name = "txtSurname";
+            this.txtSurname.Size = new System.Drawing.Size(241, 20);
+            this.txtSurname.TabIndex = 0;
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(90, 48);
+            this.txtName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(241, 20);
+            this.txtName.TabIndex = 1;
+            // 
+            // txtPatronymic
+            // 
+            this.txtPatronymic.Location = new System.Drawing.Point(90, 74);
+            this.txtPatronymic.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPatronymic.Name = "txtPatronymic";
+            this.txtPatronymic.Size = new System.Drawing.Size(241, 20);
+            this.txtPatronymic.TabIndex = 2;
+            // 
+            // txtPhone
+            // 
+            this.txtPhone.Location = new System.Drawing.Point(90, 100);
+            this.txtPhone.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(241, 20);
+            this.txtPhone.TabIndex = 3;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(90, 126);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(2);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(241, 20);
+            this.txtEmail.TabIndex = 4;
+            // 
+            // grpAccessInfo
+            // 
+            this.grpAccessInfo.Controls.Add(this.lblLogin);
+            this.grpAccessInfo.Controls.Add(this.lblPassword);
+            this.grpAccessInfo.Controls.Add(this.lblRole);
+            this.grpAccessInfo.Controls.Add(this.lblBenefit);
+            this.grpAccessInfo.Controls.Add(this.txtLogin);
+            this.grpAccessInfo.Controls.Add(this.txtPassword);
+            this.grpAccessInfo.Controls.Add(this.cmbRole);
+            this.grpAccessInfo.Controls.Add(this.cmbBenefit);
+            this.grpAccessInfo.Location = new System.Drawing.Point(9, 177);
+            this.grpAccessInfo.Margin = new System.Windows.Forms.Padding(2);
+            this.grpAccessInfo.Name = "grpAccessInfo";
+            this.grpAccessInfo.Padding = new System.Windows.Forms.Padding(2);
+            this.grpAccessInfo.Size = new System.Drawing.Size(345, 162);
+            this.grpAccessInfo.TabIndex = 1;
+            this.grpAccessInfo.TabStop = false;
+            this.grpAccessInfo.Text = "Доступ и права";
+            // 
             // lblLogin
             // 
             this.lblLogin.AutoSize = true;
@@ -296,6 +224,64 @@
             this.lblBenefit.Size = new System.Drawing.Size(46, 13);
             this.lblBenefit.TabIndex = 10;
             this.lblBenefit.Text = "Льгота:";
+            // 
+            // txtLogin
+            // 
+            this.txtLogin.Location = new System.Drawing.Point(90, 22);
+            this.txtLogin.Margin = new System.Windows.Forms.Padding(2);
+            this.txtLogin.Name = "txtLogin";
+            this.txtLogin.Size = new System.Drawing.Size(241, 20);
+            this.txtLogin.TabIndex = 0;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(90, 48);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(241, 20);
+            this.txtPassword.TabIndex = 1;
+            // 
+            // cmbRole
+            // 
+            this.cmbRole.Location = new System.Drawing.Point(90, 77);
+            this.cmbRole.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbRole.Name = "cmbRole";
+            this.cmbRole.Size = new System.Drawing.Size(241, 21);
+            this.cmbRole.TabIndex = 3;
+            // 
+            // cmbBenefit
+            // 
+            this.cmbBenefit.Location = new System.Drawing.Point(90, 105);
+            this.cmbBenefit.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbBenefit.Name = "cmbBenefit";
+            this.cmbBenefit.Size = new System.Drawing.Size(241, 21);
+            this.cmbBenefit.TabIndex = 4;
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.LightGreen;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Location = new System.Drawing.Point(98, 349);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 28);
+            this.btnSave.TabIndex = 2;
+            this.btnSave.Text = "Сохранить";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.LightGray;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Location = new System.Drawing.Point(193, 349);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 28);
+            this.btnCancel.TabIndex = 0;
+            this.btnCancel.Text = "Отмена";
+            this.btnCancel.UseVisualStyleBackColor = false;
             // 
             // AddUserForm
             // 

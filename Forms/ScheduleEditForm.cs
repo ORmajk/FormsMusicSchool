@@ -9,7 +9,7 @@ namespace MusicSchoolApp.Forms
     public partial class ScheduleEditForm : Form
     {
         private DataService _service;
-        private int _scheduleId;          // 0 = новый, >0 = редактирование
+        private int _scheduleId;
         private ClassSchedule _schedule;
 
         public ScheduleEditForm(DataService service, int scheduleId = 0)
@@ -20,44 +20,102 @@ namespace MusicSchoolApp.Forms
             LoadComboBoxes();
             if (_scheduleId > 0)
                 LoadScheduleData();
+            else
+                this.Text = "Добавление занятия";
         }
 
         private void LoadComboBoxes()
         {
-            // Загрузка групп
-            var groups = _service.GetAllGroups();
-            cmbGroup.DataSource = groups;
-            cmbGroup.DisplayMember = "GroupName";
-            cmbGroup.ValueMember = "Id";
-            cmbGroup.SelectedIndex = -1;
+            try
+            {
+                // Загрузка групп
+                var groups = _service.GetAllGroups();
+                if (groups != null && groups.Any())
+                {
+                    cmbGroup.DataSource = null;  // Сбрасываем перед установкой
+                    cmbGroup.DataSource = groups;
+                    cmbGroup.DisplayMember = "GroupName";
+                    cmbGroup.ValueMember = "Id";
+                    cmbGroup.SelectedIndex = -1;
+                }
+                else
+                {
+                    MessageBox.Show("Нет доступных групп", "Внимание",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
 
-            // Загрузка преподавателей (роль = Преподаватель)
-            var teachers = _service.GetTeachers(); // нужно реализовать в DataService
-            cmbTeacher.DataSource = teachers;
-            cmbTeacher.DisplayMember = "FullName";
-            cmbTeacher.ValueMember = "Id";
-            cmbTeacher.SelectedIndex = -1;
+                // Загрузка преподавателей
+                var teachers = _service.GetTeachers();
 
-            // Дни недели
-            cmbDayOfWeek.Items.Clear();
-            cmbDayOfWeek.Items.AddRange(new string[] {
-                "Понедельник", "Вторник", "Среда", "Четверг",
-                "Пятница", "Суббота", "Воскресенье"
-            });
-            cmbDayOfWeek.SelectedIndex = -1;
+                // Отладка - выводим количество преподавателей
+                MessageBox.Show($"Найдено преподавателей: {teachers?.Count ?? 0}", "Отладка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                if (teachers != null && teachers.Any())
+                {
+                    var teacherList = teachers.Select(t => new
+                    {
+                        t.Id,
+                        FullName = $"{t.Surname?.Trim()} {t.Name?.Trim()} {t.Patronymic?.Trim()}".Trim()
+                    }).ToList();
+
+                    cmbTeacher.DataSource = null;  // Сбрасываем
+                    cmbTeacher.DataSource = teacherList;
+                    cmbTeacher.DisplayMember = "FullName";
+                    cmbTeacher.ValueMember = "Id";
+                    cmbTeacher.SelectedIndex = -1;
+
+                    // Отладка - проверяем что данные загрузились
+                    MessageBox.Show($"Загружено в комбобокс: {teacherList.Count} преподавателей",
+                        "Отладка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Нет доступных преподавателей. Проверьте наличие пользователей с RoleId от 4 до 7.",
+                        "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    // Для отладки - показываем всех пользователей и их роли
+                    var allUsers = _service.GetAllUsers();
+                    var rolesInfo = string.Join("\n", allUsers.Select(u =>
+                        $"ID: {u.Id}, ФИО: {u.Surname} {u.Name}, RoleId: {u.RoleId}, Role: {u.Role?.RoleName}"));
+                    MessageBox.Show($"Все пользователи в системе:\n{rolesInfo}", "Отладка",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                // Дни недели
+                cmbDayOfWeek.Items.Clear();
+                cmbDayOfWeek.Items.AddRange(new string[] {
+            "Понедельник", "Вторник", "Среда", "Четверг",
+            "Пятница", "Суббота", "Воскресенье"
+        });
+                cmbDayOfWeek.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка загрузки данных: {ex.Message}\n\n{ex.StackTrace}",
+                    "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void LoadScheduleData()
         {
             _schedule = _service.GetScheduleById(_scheduleId);
-            if (_schedule == null) return;
+            if (_schedule == null)
+            {
+                MessageBox.Show("Занятие не найдено", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Close();
+                return;
+            }
+
+            this.Text = $"Редактирование занятия: {_schedule.Group?.GroupName}";
 
             // Выбор группы
             if (_schedule.GroupId.HasValue)
                 cmbGroup.SelectedValue = _schedule.GroupId.Value;
 
-            // День недели (индекс 0-6)
-            if (_schedule.DayOfWeek.HasValue && _schedule.DayOfWeek.Value >= 0 && _schedule.DayOfWeek.Value <= 6)
+            // День недели (int?)
+            if (_schedule.DayOfWeek.HasValue)
                 cmbDayOfWeek.SelectedIndex = _schedule.DayOfWeek.Value;
 
             // Время
@@ -74,22 +132,26 @@ namespace MusicSchoolApp.Forms
         {
             try
             {
-                if (!ValidateForm()) return;
+                if (!ValidateForm())
+                    return;
 
                 if (_scheduleId == 0)
                     _schedule = new ClassSchedule();
 
-                _schedule.GroupId = cmbGroup.SelectedValue as int?;
-                _schedule.DayOfWeek = cmbDayOfWeek.SelectedIndex;
+                _schedule.GroupId = (int)cmbGroup.SelectedValue;
+                _schedule.DayOfWeek = cmbDayOfWeek.SelectedIndex;  // int, не string
                 _schedule.StartTime = dtpStartTime.Value.TimeOfDay;
                 _schedule.EndTime = dtpEndTime.Value.TimeOfDay;
                 _schedule.Classroom = txtClassroom.Text.Trim();
-                _schedule.TeacherId = cmbTeacher.SelectedValue as int?;
+                _schedule.TeacherId = (int)cmbTeacher.SelectedValue;
 
                 if (_scheduleId == 0)
                     _service.AddSchedule(_schedule);
                 else
                     _service.UpdateSchedule(_schedule);
+
+                MessageBox.Show(_scheduleId == 0 ? "Занятие добавлено" : "Занятие обновлено",
+                    "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 DialogResult = DialogResult.OK;
                 Close();
@@ -105,35 +167,51 @@ namespace MusicSchoolApp.Forms
         {
             if (cmbGroup.SelectedIndex == -1)
             {
-                MessageBox.Show("Выберите группу!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Выберите группу!", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
+
             if (cmbDayOfWeek.SelectedIndex == -1)
             {
-                MessageBox.Show("Выберите день недели!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Выберите день недели!", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-            if (dtpStartTime.Value >= dtpEndTime.Value)
+
+            if (dtpStartTime.Value.TimeOfDay >= dtpEndTime.Value.TimeOfDay)
             {
-                MessageBox.Show("Время начала должно быть меньше времени окончания!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Время начала должно быть меньше времени окончания!",
+                    "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
+
             if (string.IsNullOrWhiteSpace(txtClassroom.Text))
             {
-                MessageBox.Show("Введите аудиторию!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Введите аудиторию!", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
+
             if (cmbTeacher.SelectedIndex == -1)
             {
-                MessageBox.Show("Выберите преподавателя!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Выберите преподавателя!", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
+
             return true;
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
+            DialogResult = DialogResult.Cancel;
             Close();
+        }
+
+        private void cmbTeacher_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
