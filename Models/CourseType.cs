@@ -8,5 +8,9 @@ namespace MusicSchoolApp.Models
         public string TypeName { get; set; } // course_type
 
         public virtual ICollection<Course> Courses { get; set; } = new List<Course>();
+
+
+
+
     }
 }
