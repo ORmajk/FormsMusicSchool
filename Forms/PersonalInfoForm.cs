@@ -40,19 +40,53 @@ namespace MusicSchoolApp.Forms
         private void LoadStudentData()
         {
             var courses = service.GetStudentCourses(userId);
-            dgvCourses.DataSource = courses.Select(c => new { c.Name, c.Price, Type = c.CourseType?.TypeName }).ToList();
+            dgvCourses.DataSource = courses.Select(c => new
+            {
+                c.Name,
+                c.Price,
+                Type = c.CourseType?.TypeName
+            }).ToList();
+
             var schedule = service.GetScheduleForStudent(userId);
-            dgvSchedule.DataSource = schedule.Select(s => new { Group = s.Group?.GroupName, s.DayOfWeek, s.StartTime, s.EndTime, s.Classroom }).ToList();
+            dgvSchedule.DataSource = schedule.Select(s => new
+            {
+                Course = s.Group?.Course?.Name ?? "Н/Д",
+                Group = s.Group?.GroupName ?? "Н/Д",
+                s.DayOfWeek,
+                s.StartTime,
+                s.EndTime,
+                s.Classroom
+            }).ToList();
+
             panelTeacherButtons.Visible = false;
         }
 
         private void LoadTeacherData()
         {
             var courses = service.GetCoursesByTeacher(userId);
-            dgvCourses.DataSource = courses.Select(c => new { c.Id, c.Name, c.Price, Type = c.CourseType?.TypeName, c.DurationMinutes }).ToList();
-            dgvCourses.Columns["Id"].Visible = false;
+            dgvCourses.DataSource = courses.Select(c => new
+            {
+                c.Id,
+                c.Name,
+                c.Price,
+                Type = c.CourseType?.TypeName,
+                c.DurationMinutes
+            }).ToList();
+
+            if (dgvCourses.Columns.Contains("Id"))
+                dgvCourses.Columns["Id"].Visible = false;
+
             var schedule = service.GetScheduleForTeacher(userId);
-            dgvSchedule.DataSource = schedule.Select(s => new { Group = s.Group?.GroupName, s.DayOfWeek, s.StartTime, s.EndTime, s.Classroom }).ToList();
+            dgvSchedule.DataSource = schedule.Select(s => new
+            {
+                Course = s.Group?.Course?.Name ?? "Н/Д",
+                Group = s.Group?.GroupName ?? "Н/Д",
+                s.DayOfWeek,
+                s.StartTime,
+                s.EndTime,
+                s.Classroom
+            }).ToList();
+
             panelTeacherButtons.Visible = true;
         }
 
@@ -64,7 +98,7 @@ namespace MusicSchoolApp.Forms
         private void btnAddCourse_Click(object sender, EventArgs e)
         {
             // Преподаватель может добавлять только свои курсы
-            var edit = new CourseEditForm(userId, role);
+            var edit = new CourseEditForm(userId, role);  // role = "Преподаватель"
             if (edit.ShowDialog() == DialogResult.OK)
                 LoadTeacherData();
         }
@@ -73,7 +107,7 @@ namespace MusicSchoolApp.Forms
         {
             if (dgvCourses.CurrentRow == null) return;
             int id = (int)dgvCourses.CurrentRow.Cells["Id"].Value;
-            var edit = new CourseEditForm(userId,  id);
+            var edit = new CourseEditForm(userId, role, id);
             if (edit.ShowDialog() == DialogResult.OK)
                 LoadTeacherData();
         }

@@ -1,202 +1,303 @@
-﻿namespace MusicSchoolApp.Forms
+﻿using System.Windows.Forms;
+
+namespace MusicSchoolApp.Forms
 {
     partial class CourseEditForm
     {
         private System.ComponentModel.IContainer components = null;
+        private Label lblName;
+        private TextBox txtName;
+        private Label lblPrice;
+        private NumericUpDown numPrice;
+        private Label lblMinAge;
+        private NumericUpDown numMinAge;
+        private Label lblMaxAge;
+        private NumericUpDown numMaxAge;
+        private Label lblDuration;
+        private NumericUpDown numDuration;
+        private Label lblCourseType;
+        private ComboBox cmbCourseType;
+        private Label lblTeacher;
+        private ComboBox cmbTeacher;
+        private Button btnSave;
+        private Button btnCancel;
+        private Label lblMinutes;
+        private Label lblRubles;
+        private Label lblYears;
+        private Label lblYears2;
 
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
+            {
                 components.Dispose();
+            }
             base.Dispose(disposing);
         }
 
         private void InitializeComponent()
         {
+            this.lblName = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
+            this.lblPrice = new System.Windows.Forms.Label();
             this.numPrice = new System.Windows.Forms.NumericUpDown();
+            this.lblMinAge = new System.Windows.Forms.Label();
             this.numMinAge = new System.Windows.Forms.NumericUpDown();
+            this.lblMaxAge = new System.Windows.Forms.Label();
             this.numMaxAge = new System.Windows.Forms.NumericUpDown();
+            this.lblDuration = new System.Windows.Forms.Label();
             this.numDuration = new System.Windows.Forms.NumericUpDown();
+            this.lblCourseType = new System.Windows.Forms.Label();
             this.cmbCourseType = new System.Windows.Forms.ComboBox();
+            this.lblTeacher = new System.Windows.Forms.Label();
+            this.cmbTeacher = new System.Windows.Forms.ComboBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblMinutes = new System.Windows.Forms.Label();
+            this.lblRubles = new System.Windows.Forms.Label();
+            this.lblYears = new System.Windows.Forms.Label();
+            this.lblYears2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMinAge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMaxAge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numDuration)).BeginInit();
             this.SuspendLayout();
             // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(26, 22);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(92, 13);
+            this.lblName.TabIndex = 0;
+            this.lblName.Text = "Название курса:";
+            // 
             // txtName
             // 
-            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtName.Location = new System.Drawing.Point(210, 31);
+            this.txtName.Location = new System.Drawing.Point(171, 19);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(200, 24);
-            this.txtName.TabIndex = 0;
+            this.txtName.Size = new System.Drawing.Size(258, 20);
+            this.txtName.TabIndex = 1;
+            // 
+            // lblPrice
+            // 
+            this.lblPrice.AutoSize = true;
+            this.lblPrice.Location = new System.Drawing.Point(26, 56);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(36, 13);
+            this.lblPrice.TabIndex = 2;
+            this.lblPrice.Text = "Цена:";
             // 
             // numPrice
             // 
-            this.numPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.numPrice.Location = new System.Drawing.Point(210, 61);
+            this.numPrice.Location = new System.Drawing.Point(171, 55);
             this.numPrice.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
             this.numPrice.Name = "numPrice";
-            this.numPrice.Size = new System.Drawing.Size(100, 24);
-            this.numPrice.TabIndex = 1;
+            this.numPrice.Size = new System.Drawing.Size(103, 20);
+            this.numPrice.TabIndex = 3;
+            // 
+            // lblMinAge
+            // 
+            this.lblMinAge.AutoSize = true;
+            this.lblMinAge.Location = new System.Drawing.Point(26, 91);
+            this.lblMinAge.Name = "lblMinAge";
+            this.lblMinAge.Size = new System.Drawing.Size(127, 13);
+            this.lblMinAge.TabIndex = 4;
+            this.lblMinAge.Text = "Минимальный возраст:";
             // 
             // numMinAge
             // 
-            this.numMinAge.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.numMinAge.Location = new System.Drawing.Point(210, 91);
+            this.numMinAge.Location = new System.Drawing.Point(171, 89);
+            this.numMinAge.Minimum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
             this.numMinAge.Name = "numMinAge";
-            this.numMinAge.Size = new System.Drawing.Size(100, 24);
-            this.numMinAge.TabIndex = 2;
+            this.numMinAge.Size = new System.Drawing.Size(69, 20);
+            this.numMinAge.TabIndex = 5;
+            this.numMinAge.Value = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
+            // 
+            // lblMaxAge
+            // 
+            this.lblMaxAge.AutoSize = true;
+            this.lblMaxAge.Location = new System.Drawing.Point(26, 126);
+            this.lblMaxAge.Name = "lblMaxAge";
+            this.lblMaxAge.Size = new System.Drawing.Size(133, 13);
+            this.lblMaxAge.TabIndex = 6;
+            this.lblMaxAge.Text = "Максимальный возраст:";
             // 
             // numMaxAge
             // 
-            this.numMaxAge.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.numMaxAge.Location = new System.Drawing.Point(210, 121);
+            this.numMaxAge.Location = new System.Drawing.Point(171, 124);
             this.numMaxAge.Name = "numMaxAge";
-            this.numMaxAge.Size = new System.Drawing.Size(100, 24);
-            this.numMaxAge.TabIndex = 3;
-            this.numMaxAge.ValueChanged += new System.EventHandler(this.numMaxAge_ValueChanged);
+            this.numMaxAge.Size = new System.Drawing.Size(69, 20);
+            this.numMaxAge.TabIndex = 7;
+            // 
+            // lblDuration
+            // 
+            this.lblDuration.AutoSize = true;
+            this.lblDuration.Location = new System.Drawing.Point(26, 160);
+            this.lblDuration.Name = "lblDuration";
+            this.lblDuration.Size = new System.Drawing.Size(83, 13);
+            this.lblDuration.TabIndex = 8;
+            this.lblDuration.Text = "Длительность:";
             // 
             // numDuration
             // 
-            this.numDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.numDuration.Location = new System.Drawing.Point(210, 151);
+            this.numDuration.Location = new System.Drawing.Point(171, 159);
             this.numDuration.Maximum = new decimal(new int[] {
-            180,
+            300,
+            0,
+            0,
+            0});
+            this.numDuration.Minimum = new decimal(new int[] {
+            30,
             0,
             0,
             0});
             this.numDuration.Name = "numDuration";
-            this.numDuration.Size = new System.Drawing.Size(100, 24);
-            this.numDuration.TabIndex = 4;
+            this.numDuration.Size = new System.Drawing.Size(69, 20);
+            this.numDuration.TabIndex = 9;
+            this.numDuration.Value = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
+            // 
+            // lblCourseType
+            // 
+            this.lblCourseType.AutoSize = true;
+            this.lblCourseType.Location = new System.Drawing.Point(26, 195);
+            this.lblCourseType.Name = "lblCourseType";
+            this.lblCourseType.Size = new System.Drawing.Size(61, 13);
+            this.lblCourseType.TabIndex = 10;
+            this.lblCourseType.Text = "Тип курса:";
             // 
             // cmbCourseType
             // 
             this.cmbCourseType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCourseType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cmbCourseType.Location = new System.Drawing.Point(210, 181);
+            this.cmbCourseType.FormattingEnabled = true;
+            this.cmbCourseType.Location = new System.Drawing.Point(171, 192);
             this.cmbCourseType.Name = "cmbCourseType";
-            this.cmbCourseType.Size = new System.Drawing.Size(150, 26);
-            this.cmbCourseType.TabIndex = 5;
+            this.cmbCourseType.Size = new System.Drawing.Size(172, 21);
+            this.cmbCourseType.TabIndex = 11;
+            // 
+            // lblTeacher
+            // 
+            this.lblTeacher.AutoSize = true;
+            this.lblTeacher.Location = new System.Drawing.Point(26, 230);
+            this.lblTeacher.Name = "lblTeacher";
+            this.lblTeacher.Size = new System.Drawing.Size(89, 13);
+            this.lblTeacher.TabIndex = 12;
+            this.lblTeacher.Text = "Преподаватель:";
+            // 
+            // cmbTeacher
+            // 
+            this.cmbTeacher.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTeacher.FormattingEnabled = true;
+            this.cmbTeacher.Location = new System.Drawing.Point(171, 227);
+            this.cmbTeacher.Name = "cmbTeacher";
+            this.cmbTeacher.Size = new System.Drawing.Size(258, 21);
+            this.cmbTeacher.TabIndex = 13;
+            this.cmbTeacher.SelectedIndexChanged += new System.EventHandler(this.cmbTeacher_SelectedIndexChanged);
             // 
             // btnSave
             // 
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnSave.Location = new System.Drawing.Point(80, 231);
+            this.btnSave.Location = new System.Drawing.Point(171, 277);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(100, 30);
-            this.btnSave.TabIndex = 6;
+            this.btnSave.Size = new System.Drawing.Size(120, 35);
+            this.btnSave.TabIndex = 14;
             this.btnSave.Text = "Сохранить";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnCancel.Location = new System.Drawing.Point(210, 231);
+            this.btnCancel.Location = new System.Drawing.Point(309, 277);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(100, 30);
-            this.btnCancel.TabIndex = 7;
+            this.btnCancel.Size = new System.Drawing.Size(120, 35);
+            this.btnCancel.TabIndex = 15;
             this.btnCancel.Text = "Отмена";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // label1
+            // lblMinutes
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(20, 34);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 18);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Название:";
+            this.lblMinutes.AutoSize = true;
+            this.lblMinutes.Location = new System.Drawing.Point(249, 160);
+            this.lblMinutes.Name = "lblMinutes";
+            this.lblMinutes.Size = new System.Drawing.Size(37, 13);
+            this.lblMinutes.TabIndex = 16;
+            this.lblMinutes.Text = "минут";
             // 
-            // label2
+            // lblRubles
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(20, 61);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 18);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Цена:";
+            this.lblRubles.AutoSize = true;
+            this.lblRubles.Location = new System.Drawing.Point(283, 56);
+            this.lblRubles.Name = "lblRubles";
+            this.lblRubles.Size = new System.Drawing.Size(27, 13);
+            this.lblRubles.TabIndex = 17;
+            this.lblRubles.Text = "руб.";
             // 
-            // label3
+            // lblYears
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(20, 93);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(143, 18);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Мин. возраст (лет):";
+            this.lblYears.AutoSize = true;
+            this.lblYears.Location = new System.Drawing.Point(249, 91);
+            this.lblYears.Name = "lblYears";
+            this.lblYears.Size = new System.Drawing.Size(24, 13);
+            this.lblYears.TabIndex = 18;
+            this.lblYears.Text = "лет";
             // 
-            // label4
+            // lblYears2
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(20, 123);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(113, 18);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Макс. возраст:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(20, 153);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(179, 18);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Длительность (минуты):";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(20, 180);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(37, 18);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Тип:";
+            this.lblYears2.AutoSize = true;
+            this.lblYears2.Location = new System.Drawing.Point(249, 126);
+            this.lblYears2.Name = "lblYears2";
+            this.lblYears2.Size = new System.Drawing.Size(65, 13);
+            this.lblYears2.TabIndex = 19;
+            this.lblYears2.Text = "лет (0 - нет)";
             // 
             // CourseEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(433, 315);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(471, 338);
+            this.Controls.Add(this.lblYears2);
+            this.Controls.Add(this.lblYears);
+            this.Controls.Add(this.lblRubles);
+            this.Controls.Add(this.lblMinutes);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.cmbTeacher);
+            this.Controls.Add(this.lblTeacher);
             this.Controls.Add(this.cmbCourseType);
+            this.Controls.Add(this.lblCourseType);
             this.Controls.Add(this.numDuration);
+            this.Controls.Add(this.lblDuration);
             this.Controls.Add(this.numMaxAge);
+            this.Controls.Add(this.lblMaxAge);
             this.Controls.Add(this.numMinAge);
+            this.Controls.Add(this.lblMinAge);
             this.Controls.Add(this.numPrice);
+            this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.txtName);
+            this.Controls.Add(this.lblName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "CourseEditForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Редактирование курса";
+            this.Load += new System.EventHandler(this.CourseEditForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMinAge)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMaxAge)).EndInit();
@@ -205,20 +306,5 @@
             this.PerformLayout();
 
         }
-
-        private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.NumericUpDown numPrice;
-        private System.Windows.Forms.NumericUpDown numMinAge;
-        private System.Windows.Forms.NumericUpDown numMaxAge;
-        private System.Windows.Forms.NumericUpDown numDuration;
-        private System.Windows.Forms.ComboBox cmbCourseType;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
     }
 }
