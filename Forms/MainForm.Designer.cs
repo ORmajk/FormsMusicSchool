@@ -16,8 +16,8 @@
             this.btnPersonalInfo = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.PnlForAdmin = new System.Windows.Forms.Panel();
-            this.buttAllInfoforAdmin = new System.Windows.Forms.Button();
             this.PnlOthersButts = new System.Windows.Forms.Panel();
+            this.buttAllInfoforAdmin = new System.Windows.Forms.Button();
             this.PnlForAdmin.SuspendLayout();
             this.PnlOthersButts.SuspendLayout();
             this.SuspendLayout();
@@ -57,12 +57,20 @@
             // 
             // PnlForAdmin
             // 
-            this.PnlForAdmin.Controls.Add(this.PnlOthersButts);
             this.PnlForAdmin.Controls.Add(this.buttAllInfoforAdmin);
             this.PnlForAdmin.Location = new System.Drawing.Point(86, 23);
             this.PnlForAdmin.Name = "PnlForAdmin";
             this.PnlForAdmin.Size = new System.Drawing.Size(252, 178);
             this.PnlForAdmin.TabIndex = 3;
+            // 
+            // PnlOthersButts
+            // 
+            this.PnlOthersButts.Controls.Add(this.btnCourses);
+            this.PnlOthersButts.Controls.Add(this.btnPersonalInfo);
+            this.PnlOthersButts.Location = new System.Drawing.Point(86, 23);
+            this.PnlOthersButts.Name = "PnlOthersButts";
+            this.PnlOthersButts.Size = new System.Drawing.Size(252, 178);
+            this.PnlOthersButts.TabIndex = 4;
             // 
             // buttAllInfoforAdmin
             // 
@@ -75,21 +83,13 @@
             this.buttAllInfoforAdmin.UseVisualStyleBackColor = true;
             this.buttAllInfoforAdmin.Click += new System.EventHandler(this.buttAllInfoforAdmin_Click);
             // 
-            // PnlOthersButts
-            // 
-            this.PnlOthersButts.Controls.Add(this.btnCourses);
-            this.PnlOthersButts.Controls.Add(this.btnPersonalInfo);
-            this.PnlOthersButts.Location = new System.Drawing.Point(3, 116);
-            this.PnlOthersButts.Name = "PnlOthersButts";
-            this.PnlOthersButts.Size = new System.Drawing.Size(252, 178);
-            this.PnlOthersButts.TabIndex = 4;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(423, 303);
+            this.Controls.Add(this.PnlOthersButts);
             this.Controls.Add(this.PnlForAdmin);
             this.Controls.Add(this.btnExit);
             this.Name = "MainForm";
