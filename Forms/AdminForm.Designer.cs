@@ -13,6 +13,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
             this.tabControlAdmin = new System.Windows.Forms.TabControl();
             this.tabPageUsers = new System.Windows.Forms.TabPage();
             this.dgvUsers = new System.Windows.Forms.DataGridView();
@@ -38,7 +39,7 @@
             this.tabControlAdmin.Controls.Add(this.tabPageUsers);
             this.tabControlAdmin.Controls.Add(this.tabPageCourses);
             this.tabControlAdmin.Controls.Add(this.tabPageSchedules);
-            this.tabControlAdmin.Location = new System.Drawing.Point(12, 12);
+            this.tabControlAdmin.Location = new System.Drawing.Point(12, 50);
             this.tabControlAdmin.Name = "tabControlAdmin";
             this.tabControlAdmin.SelectedIndex = 0;
             this.tabControlAdmin.Size = new System.Drawing.Size(860, 500);
@@ -58,8 +59,8 @@
             // 
             // dgvUsers
             // 
-            this.dgvUsers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dgvUsers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsers.Location = new System.Drawing.Point(6, 6);
@@ -71,6 +72,7 @@
             // btnAddUser
             // 
             this.btnAddUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAddUser.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnAddUser.Location = new System.Drawing.Point(6, 432);
             this.btnAddUser.Name = "btnAddUser";
             this.btnAddUser.Size = new System.Drawing.Size(150, 30);
@@ -93,8 +95,8 @@
             // 
             // dgvCourses
             // 
-            this.dgvCourses.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dgvCourses.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCourses.Location = new System.Drawing.Point(6, 6);
@@ -106,6 +108,7 @@
             // btnAddCourse
             // 
             this.btnAddCourse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAddCourse.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnAddCourse.Location = new System.Drawing.Point(6, 432);
             this.btnAddCourse.Name = "btnAddCourse";
             this.btnAddCourse.Size = new System.Drawing.Size(150, 30);
@@ -128,8 +131,8 @@
             // 
             // dgvSchedules
             // 
-            this.dgvSchedules.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dgvSchedules.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvSchedules.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSchedules.Location = new System.Drawing.Point(6, 6);
@@ -141,6 +144,7 @@
             // btnAddSchedule
             // 
             this.btnAddSchedule.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAddSchedule.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnAddSchedule.Location = new System.Drawing.Point(6, 432);
             this.btnAddSchedule.Name = "btnAddSchedule";
             this.btnAddSchedule.Size = new System.Drawing.Size(150, 30);
@@ -152,7 +156,8 @@
             // btnExit
             // 
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.Location = new System.Drawing.Point(878, 12);
+            this.btnExit.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnExit.Location = new System.Drawing.Point(882, 72);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(90, 32);
             this.btnExit.TabIndex = 1;
@@ -164,10 +169,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::FormsMusicSchool.Properties.Resources.FonNot;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(984, 524);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.tabControlAdmin);
+            this.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AdminForm";
+            this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Панель администратора";
             this.tabControlAdmin.ResumeLayout(false);
@@ -178,6 +188,7 @@
             this.tabPageSchedules.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSchedules)).EndInit();
             this.ResumeLayout(false);
+
         }
 
         private System.Windows.Forms.TabControl tabControlAdmin;

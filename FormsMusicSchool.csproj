@@ -36,6 +36,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\musicnotequaver_87184.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
@@ -169,12 +172,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\MusicSchoolDbContext.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\AddUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,6 +189,12 @@
     </Compile>
     <Compile Include="Forms\CartForm.Designer.cs">
       <DependentUpon>CartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CheckoutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CheckoutForm.Designer.cs">
+      <DependentUpon>CheckoutForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\CourseDetailForm.cs">
       <SubType>Form</SubType>
@@ -247,6 +250,11 @@
     <Compile Include="Forms\ScheduleEditForm.Designer.cs">
       <DependentUpon>ScheduleEditForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20260423082004_InitialCreate.cs" />
+    <Compile Include="Migrations\20260423082004_InitialCreate.Designer.cs">
+      <DependentUpon>20260423082004_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\MusicSchoolDbContextModelSnapshot.cs" />
     <Compile Include="Models\Achievement.cs" />
     <Compile Include="Models\AchievementType.cs" />
     <Compile Include="Models\Benefit.cs" />
@@ -266,8 +274,14 @@
     <EmbeddedResource Include="Forms\AddUserForm.resx">
       <DependentUpon>AddUserForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AdminForm.resx">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\CartForm.resx">
       <DependentUpon>CartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CheckoutForm.resx">
+      <DependentUpon>CheckoutForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CourseDetailForm.resx">
       <DependentUpon>CourseDetailForm.cs</DependentUpon>
@@ -304,6 +318,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -321,6 +336,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="musicnotequaver_87184.ico" />
     <Content Include="Resources\FonNot.jpg" />
     <Content Include="Resources\musicnotequaver_87184.ico" />
   </ItemGroup>

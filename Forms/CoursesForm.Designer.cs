@@ -12,6 +12,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CoursesForm));
             this.dgvCourses = new System.Windows.Forms.DataGridView();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.cmbType = new System.Windows.Forms.ComboBox();
@@ -130,6 +131,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::FormsMusicSchool.Properties.Resources.FonNot;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(691, 461);
             this.Controls.Add(this.but_exit);
@@ -142,8 +144,10 @@
             this.Controls.Add(this.cmbType);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.dgvCourses);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CoursesForm";
             this.Text = "Все курсы";
+            this.Load += new System.EventHandler(this.CoursesForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourses)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -12,12 +12,13 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.btnCourses = new System.Windows.Forms.Button();
             this.btnPersonalInfo = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.PnlForAdmin = new System.Windows.Forms.Panel();
-            this.PnlOthersButts = new System.Windows.Forms.Panel();
             this.buttAllInfoforAdmin = new System.Windows.Forms.Button();
+            this.PnlOthersButts = new System.Windows.Forms.Panel();
             this.PnlForAdmin.SuspendLayout();
             this.PnlOthersButts.SuspendLayout();
             this.SuspendLayout();
@@ -47,7 +48,7 @@
             // btnExit
             // 
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnExit.Location = new System.Drawing.Point(118, 207);
+            this.btnExit.Location = new System.Drawing.Point(114, 212);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(197, 62);
             this.btnExit.TabIndex = 2;
@@ -58,19 +59,10 @@
             // PnlForAdmin
             // 
             this.PnlForAdmin.Controls.Add(this.buttAllInfoforAdmin);
-            this.PnlForAdmin.Location = new System.Drawing.Point(86, 23);
+            this.PnlForAdmin.Location = new System.Drawing.Point(82, 28);
             this.PnlForAdmin.Name = "PnlForAdmin";
             this.PnlForAdmin.Size = new System.Drawing.Size(252, 178);
             this.PnlForAdmin.TabIndex = 3;
-            // 
-            // PnlOthersButts
-            // 
-            this.PnlOthersButts.Controls.Add(this.btnCourses);
-            this.PnlOthersButts.Controls.Add(this.btnPersonalInfo);
-            this.PnlOthersButts.Location = new System.Drawing.Point(89, 20);
-            this.PnlOthersButts.Name = "PnlOthersButts";
-            this.PnlOthersButts.Size = new System.Drawing.Size(252, 178);
-            this.PnlOthersButts.TabIndex = 4;
             // 
             // buttAllInfoforAdmin
             // 
@@ -83,15 +75,26 @@
             this.buttAllInfoforAdmin.UseVisualStyleBackColor = true;
             this.buttAllInfoforAdmin.Click += new System.EventHandler(this.buttAllInfoforAdmin_Click);
             // 
+            // PnlOthersButts
+            // 
+            this.PnlOthersButts.Controls.Add(this.btnCourses);
+            this.PnlOthersButts.Controls.Add(this.btnPersonalInfo);
+            this.PnlOthersButts.Location = new System.Drawing.Point(85, 25);
+            this.PnlOthersButts.Name = "PnlOthersButts";
+            this.PnlOthersButts.Size = new System.Drawing.Size(252, 178);
+            this.PnlOthersButts.TabIndex = 4;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::FormsMusicSchool.Properties.Resources.FonNot;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(423, 303);
             this.Controls.Add(this.PnlOthersButts);
             this.Controls.Add(this.PnlForAdmin);
             this.Controls.Add(this.btnExit);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Главное меню";
             this.Load += new System.EventHandler(this.MainForm_Load);

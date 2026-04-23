@@ -12,6 +12,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CourseDetailForm));
             this.groupBoxDetails = new System.Windows.Forms.GroupBox();
             this.lblTeacher = new System.Windows.Forms.Label();
             this.lblType = new System.Windows.Forms.Label();
@@ -24,6 +25,7 @@
             // 
             // groupBoxDetails
             // 
+            this.groupBoxDetails.BackColor = System.Drawing.SystemColors.Control;
             this.groupBoxDetails.Controls.Add(this.lblTeacher);
             this.groupBoxDetails.Controls.Add(this.lblType);
             this.groupBoxDetails.Controls.Add(this.lblDuration);
@@ -31,7 +33,7 @@
             this.groupBoxDetails.Controls.Add(this.lblPrice);
             this.groupBoxDetails.Controls.Add(this.lblCourseName);
             this.groupBoxDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBoxDetails.Location = new System.Drawing.Point(32, 15);
+            this.groupBoxDetails.Location = new System.Drawing.Point(37, 21);
             this.groupBoxDetails.Name = "groupBoxDetails";
             this.groupBoxDetails.Size = new System.Drawing.Size(403, 164);
             this.groupBoxDetails.TabIndex = 0;
@@ -96,9 +98,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::FormsMusicSchool.Properties.Resources.FonNot;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(478, 211);
             this.Controls.Add(this.groupBoxDetails);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CourseDetailForm";
             this.Text = "Детали курса";
             this.groupBoxDetails.ResumeLayout(false);

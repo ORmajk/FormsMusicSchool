@@ -29,6 +29,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddUserForm));
             this.grpUserInfo = new System.Windows.Forms.GroupBox();
             this.lblSurname = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
@@ -67,7 +68,7 @@
             this.grpUserInfo.Controls.Add(this.txtPatronymic);
             this.grpUserInfo.Controls.Add(this.txtPhone);
             this.grpUserInfo.Controls.Add(this.txtEmail);
-            this.grpUserInfo.Location = new System.Drawing.Point(9, 10);
+            this.grpUserInfo.Location = new System.Drawing.Point(37, 26);
             this.grpUserInfo.Margin = new System.Windows.Forms.Padding(2);
             this.grpUserInfo.Name = "grpUserInfo";
             this.grpUserInfo.Padding = new System.Windows.Forms.Padding(2);
@@ -176,7 +177,7 @@
             this.grpAccessInfo.Controls.Add(this.txtPassword);
             this.grpAccessInfo.Controls.Add(this.cmbRole);
             this.grpAccessInfo.Controls.Add(this.cmbBenefit);
-            this.grpAccessInfo.Location = new System.Drawing.Point(9, 177);
+            this.grpAccessInfo.Location = new System.Drawing.Point(37, 195);
             this.grpAccessInfo.Margin = new System.Windows.Forms.Padding(2);
             this.grpAccessInfo.Name = "grpAccessInfo";
             this.grpAccessInfo.Padding = new System.Windows.Forms.Padding(2);
@@ -262,7 +263,7 @@
             // 
             this.btnSave.BackColor = System.Drawing.Color.LightGreen;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Location = new System.Drawing.Point(98, 349);
+            this.btnSave.Location = new System.Drawing.Point(126, 367);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 28);
@@ -275,7 +276,7 @@
             // 
             this.btnCancel.BackColor = System.Drawing.Color.LightGray;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Location = new System.Drawing.Point(193, 349);
+            this.btnCancel.Location = new System.Drawing.Point(221, 367);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 28);
@@ -287,12 +288,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(363, 391);
+            this.BackgroundImage = global::FormsMusicSchool.Properties.Resources.FonNot;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(420, 408);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.grpAccessInfo);
             this.Controls.Add(this.grpUserInfo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;

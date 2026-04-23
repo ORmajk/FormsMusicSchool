@@ -37,6 +37,7 @@ namespace MusicSchoolApp.Forms
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CourseEditForm));
             this.lblName = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblPrice = new System.Windows.Forms.Label();
@@ -212,12 +213,14 @@ namespace MusicSchoolApp.Forms
             // 
             // btnSave
             // 
+            this.btnSave.BackColor = System.Drawing.Color.LightGreen;
+            this.btnSave.ForeColor = System.Drawing.Color.Black;
             this.btnSave.Location = new System.Drawing.Point(171, 277);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(120, 35);
             this.btnSave.TabIndex = 14;
             this.btnSave.Text = "Сохранить";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
@@ -270,6 +273,8 @@ namespace MusicSchoolApp.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::FormsMusicSchool.Properties.Resources.FonNot;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(471, 338);
             this.Controls.Add(this.lblYears2);
             this.Controls.Add(this.lblYears);
@@ -292,6 +297,7 @@ namespace MusicSchoolApp.Forms
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.lblName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CourseEditForm";

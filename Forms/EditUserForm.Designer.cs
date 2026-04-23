@@ -39,6 +39,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditUserForm));
             this.txtSurname = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtPatronymic = new System.Windows.Forms.TextBox();
@@ -68,7 +69,7 @@
             // txtSurname
             // 
             this.txtSurname.Location = new System.Drawing.Point(90, 22);
-            this.txtSurname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSurname.Margin = new System.Windows.Forms.Padding(2);
             this.txtSurname.Name = "txtSurname";
             this.txtSurname.Size = new System.Drawing.Size(241, 20);
             this.txtSurname.TabIndex = 1;
@@ -76,7 +77,7 @@
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(90, 48);
-            this.txtName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtName.Margin = new System.Windows.Forms.Padding(2);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(241, 20);
             this.txtName.TabIndex = 3;
@@ -84,7 +85,7 @@
             // txtPatronymic
             // 
             this.txtPatronymic.Location = new System.Drawing.Point(90, 74);
-            this.txtPatronymic.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPatronymic.Margin = new System.Windows.Forms.Padding(2);
             this.txtPatronymic.Name = "txtPatronymic";
             this.txtPatronymic.Size = new System.Drawing.Size(241, 20);
             this.txtPatronymic.TabIndex = 5;
@@ -92,7 +93,7 @@
             // txtPhone
             // 
             this.txtPhone.Location = new System.Drawing.Point(90, 100);
-            this.txtPhone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPhone.Margin = new System.Windows.Forms.Padding(2);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(241, 20);
             this.txtPhone.TabIndex = 7;
@@ -101,7 +102,7 @@
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(90, 126);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(2);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(241, 20);
             this.txtEmail.TabIndex = 9;
@@ -109,7 +110,7 @@
             // txtLogin
             // 
             this.txtLogin.Location = new System.Drawing.Point(90, 22);
-            this.txtLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtLogin.Margin = new System.Windows.Forms.Padding(2);
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(241, 20);
             this.txtLogin.TabIndex = 1;
@@ -117,7 +118,7 @@
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(90, 48);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(241, 20);
@@ -128,7 +129,7 @@
             this.cmbRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRole.FormattingEnabled = true;
             this.cmbRole.Location = new System.Drawing.Point(90, 77);
-            this.cmbRole.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbRole.Margin = new System.Windows.Forms.Padding(2);
             this.cmbRole.Name = "cmbRole";
             this.cmbRole.Size = new System.Drawing.Size(241, 21);
             this.cmbRole.TabIndex = 5;
@@ -138,7 +139,7 @@
             this.cmbBenefit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBenefit.FormattingEnabled = true;
             this.cmbBenefit.Location = new System.Drawing.Point(90, 105);
-            this.cmbBenefit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbBenefit.Margin = new System.Windows.Forms.Padding(2);
             this.cmbBenefit.Name = "cmbBenefit";
             this.cmbBenefit.Size = new System.Drawing.Size(241, 21);
             this.cmbBenefit.TabIndex = 7;
@@ -147,8 +148,8 @@
             // 
             this.btnSave.BackColor = System.Drawing.Color.LightGreen;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Location = new System.Drawing.Point(90, 343);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSave.Location = new System.Drawing.Point(97, 343);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(90, 28);
             this.btnSave.TabIndex = 2;
@@ -160,8 +161,8 @@
             // 
             this.btnCancel.BackColor = System.Drawing.Color.LightGray;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Location = new System.Drawing.Point(188, 343);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancel.Location = new System.Drawing.Point(195, 343);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(90, 28);
             this.btnCancel.TabIndex = 3;
@@ -271,10 +272,10 @@
             this.grpUserInfo.Controls.Add(this.txtPhone);
             this.grpUserInfo.Controls.Add(this.lblEmail);
             this.grpUserInfo.Controls.Add(this.txtEmail);
-            this.grpUserInfo.Location = new System.Drawing.Point(9, 10);
-            this.grpUserInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpUserInfo.Location = new System.Drawing.Point(16, 10);
+            this.grpUserInfo.Margin = new System.Windows.Forms.Padding(2);
             this.grpUserInfo.Name = "grpUserInfo";
-            this.grpUserInfo.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpUserInfo.Padding = new System.Windows.Forms.Padding(2);
             this.grpUserInfo.Size = new System.Drawing.Size(345, 162);
             this.grpUserInfo.TabIndex = 0;
             this.grpUserInfo.TabStop = false;
@@ -290,10 +291,10 @@
             this.grpAccessInfo.Controls.Add(this.cmbRole);
             this.grpAccessInfo.Controls.Add(this.lblBenefit);
             this.grpAccessInfo.Controls.Add(this.cmbBenefit);
-            this.grpAccessInfo.Location = new System.Drawing.Point(9, 177);
-            this.grpAccessInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpAccessInfo.Location = new System.Drawing.Point(16, 177);
+            this.grpAccessInfo.Margin = new System.Windows.Forms.Padding(2);
             this.grpAccessInfo.Name = "grpAccessInfo";
-            this.grpAccessInfo.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpAccessInfo.Padding = new System.Windows.Forms.Padding(2);
             this.grpAccessInfo.Size = new System.Drawing.Size(345, 150);
             this.grpAccessInfo.TabIndex = 1;
             this.grpAccessInfo.TabStop = false;
@@ -303,13 +304,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(363, 391);
+            this.BackgroundImage = global::FormsMusicSchool.Properties.Resources.FonNot;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(387, 391);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.grpAccessInfo);
             this.Controls.Add(this.grpUserInfo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "EditUserForm";

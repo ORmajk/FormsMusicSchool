@@ -12,6 +12,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PersonalInfoForm));
             this.groupBoxPersonal = new System.Windows.Forms.GroupBox();
             this.lblBenefit = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -168,7 +169,7 @@
             this.panelTeacherButtons.Controls.Add(this.btnAddCourse);
             this.panelTeacherButtons.Controls.Add(this.btnEditCourse);
             this.panelTeacherButtons.Controls.Add(this.btnDeleteCourse);
-            this.panelTeacherButtons.Location = new System.Drawing.Point(15, 574);
+            this.panelTeacherButtons.Location = new System.Drawing.Point(77, 549);
             this.panelTeacherButtons.Name = "panelTeacherButtons";
             this.panelTeacherButtons.Size = new System.Drawing.Size(409, 46);
             this.panelTeacherButtons.TabIndex = 4;
@@ -217,12 +218,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(683, 637);
+            this.BackgroundImage = global::FormsMusicSchool.Properties.Resources.FonNot;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(683, 611);
             this.Controls.Add(this.butt_exit);
             this.Controls.Add(this.panelTeacherButtons);
             this.Controls.Add(this.groupBoxStudentTeacher);
             this.Controls.Add(this.groupBoxPersonal);
             this.Controls.Add(this.dgvAchievements);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PersonalInfoForm";
             this.Text = "Личная информация";
             this.Load += new System.EventHandler(this.PersonalInfoForm_Load);
