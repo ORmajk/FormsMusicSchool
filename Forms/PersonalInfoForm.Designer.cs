@@ -31,12 +31,14 @@
             this.btnEditCourse = new System.Windows.Forms.Button();
             this.btnDeleteCourse = new System.Windows.Forms.Button();
             this.butt_exit = new System.Windows.Forms.Button();
+            this.Награды = new System.Windows.Forms.GroupBox();
             this.groupBoxPersonal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAchievements)).BeginInit();
             this.groupBoxStudentTeacher.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSchedule)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourses)).BeginInit();
             this.panelTeacherButtons.SuspendLayout();
+            this.Награды.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxPersonal
@@ -131,7 +133,7 @@
             // dgvAchievements
             // 
             this.dgvAchievements.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAchievements.Location = new System.Drawing.Point(21, 435);
+            this.dgvAchievements.Location = new System.Drawing.Point(6, 18);
             this.dgvAchievements.Name = "dgvAchievements";
             this.dgvAchievements.Size = new System.Drawing.Size(535, 102);
             this.dgvAchievements.TabIndex = 1;
@@ -169,14 +171,14 @@
             this.panelTeacherButtons.Controls.Add(this.btnAddCourse);
             this.panelTeacherButtons.Controls.Add(this.btnEditCourse);
             this.panelTeacherButtons.Controls.Add(this.btnDeleteCourse);
-            this.panelTeacherButtons.Location = new System.Drawing.Point(77, 549);
+            this.panelTeacherButtons.Location = new System.Drawing.Point(87, 424);
             this.panelTeacherButtons.Name = "panelTeacherButtons";
             this.panelTeacherButtons.Size = new System.Drawing.Size(409, 46);
             this.panelTeacherButtons.TabIndex = 4;
             // 
             // btnAddCourse
             // 
-            this.btnAddCourse.Location = new System.Drawing.Point(14, 6);
+            this.btnAddCourse.Location = new System.Drawing.Point(14, 9);
             this.btnAddCourse.Name = "btnAddCourse";
             this.btnAddCourse.Size = new System.Drawing.Size(120, 28);
             this.btnAddCourse.TabIndex = 0;
@@ -186,7 +188,7 @@
             // 
             // btnEditCourse
             // 
-            this.btnEditCourse.Location = new System.Drawing.Point(140, 6);
+            this.btnEditCourse.Location = new System.Drawing.Point(143, 9);
             this.btnEditCourse.Name = "btnEditCourse";
             this.btnEditCourse.Size = new System.Drawing.Size(120, 28);
             this.btnEditCourse.TabIndex = 1;
@@ -196,7 +198,7 @@
             // 
             // btnDeleteCourse
             // 
-            this.btnDeleteCourse.Location = new System.Drawing.Point(271, 6);
+            this.btnDeleteCourse.Location = new System.Drawing.Point(271, 9);
             this.btnDeleteCourse.Name = "btnDeleteCourse";
             this.btnDeleteCourse.Size = new System.Drawing.Size(120, 28);
             this.btnDeleteCourse.TabIndex = 2;
@@ -214,18 +216,28 @@
             this.butt_exit.UseVisualStyleBackColor = true;
             this.butt_exit.Click += new System.EventHandler(this.butt_exit_Click);
             // 
+            // Награды
+            // 
+            this.Награды.Controls.Add(this.dgvAchievements);
+            this.Награды.Location = new System.Drawing.Point(12, 476);
+            this.Награды.Name = "Награды";
+            this.Награды.Size = new System.Drawing.Size(550, 129);
+            this.Награды.TabIndex = 6;
+            this.Награды.TabStop = false;
+            this.Награды.Text = "Награды";
+            // 
             // PersonalInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::FormsMusicSchool.Properties.Resources.FonNot;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(683, 611);
+            this.ClientSize = new System.Drawing.Size(683, 623);
+            this.Controls.Add(this.Награды);
             this.Controls.Add(this.butt_exit);
             this.Controls.Add(this.panelTeacherButtons);
             this.Controls.Add(this.groupBoxStudentTeacher);
             this.Controls.Add(this.groupBoxPersonal);
-            this.Controls.Add(this.dgvAchievements);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PersonalInfoForm";
             this.Text = "Личная информация";
@@ -237,6 +249,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvSchedule)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourses)).EndInit();
             this.panelTeacherButtons.ResumeLayout(false);
+            this.Награды.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -252,5 +265,6 @@
         private System.Windows.Forms.Button btnEditCourse;
         private System.Windows.Forms.Button btnDeleteCourse;
         private System.Windows.Forms.Button butt_exit;
+        private System.Windows.Forms.GroupBox Награды;
     }
 }

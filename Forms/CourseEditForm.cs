@@ -56,20 +56,7 @@ namespace MusicSchoolApp.Forms
         {
             try
             {
-                // Получаем всех пользователей
-                var allUsers = service.GetAllUsers();
-
-                // Фильтруем по ролям с ID от 4 до 7
-                var teachers = allUsers
-                    .Where(u => u.RoleId >= 4 && u.RoleId <= 7)
-                    .Select(u => new
-                    {
-                        u.Id,
-                        FullName = $"{u.Surname} {u.Name} {u.Patronymic}".Trim(),
-                        RoleName = u.Role?.RoleName ?? ""
-                    })
-                    .OrderBy(t => t.FullName)
-                    .ToList();
+                var teachers = service.GetTeachers();
 
                 if (!teachers.Any())
                 {
@@ -78,11 +65,19 @@ namespace MusicSchoolApp.Forms
                     return;
                 }
 
+                // Создаем список с отформатированными именами
+                var teacherList = teachers.Select(t => new
+                {
+                    Id = t.Id,
+                    FullName = $"{t.Surname} {t.Name}" +
+                        (string.IsNullOrEmpty(t.Patronymic) ? "" : $" {t.Patronymic}"),
+                    Role = t.Role?.RoleName ?? "Нет роли"
+                }).ToList();
+
                 cmbTeacher.DisplayMember = "FullName";
                 cmbTeacher.ValueMember = "Id";
-                cmbTeacher.DataSource = teachers;
+                cmbTeacher.DataSource = teacherList;
 
-                // Устанавливаем первый элемент по умолчанию
                 if (cmbTeacher.Items.Count > 0)
                     cmbTeacher.SelectedIndex = 0;
             }

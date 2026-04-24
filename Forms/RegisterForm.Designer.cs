@@ -203,6 +203,7 @@
             this.Controls.Add(this.txtPatronymic);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.txtSurname);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RegisterForm";
             this.Text = "Регистрация";
             this.ResumeLayout(false);

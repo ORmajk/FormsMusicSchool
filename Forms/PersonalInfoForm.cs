@@ -88,6 +88,7 @@ namespace MusicSchoolApp.Forms
             }).ToList();
 
             panelTeacherButtons.Visible = true;
+            Награды.Visible = false;
         }
 
         private void LoadAdminData()

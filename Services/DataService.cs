@@ -50,6 +50,11 @@ namespace MusicSchoolApp.Services
                 .ToList();
         }
 
+        public Benefit GetBenefitById(int benefitId)
+        {
+            return new MusicSchoolDbContext().Benefits.FirstOrDefault(b => b.Id == benefitId);
+        }
+
         public void AddUser(User user)
         {
             context.Users.Add(user);
@@ -58,8 +63,24 @@ namespace MusicSchoolApp.Services
 
         public void UpdateUser(User user)
         {
-            context.Users.Update(user);
-            context.SaveChanges();
+            try
+            {
+                var existingUser = context.Users.Find(user.Id);
+
+                if (existingUser != null)
+                {
+                    context.Entry(existingUser).CurrentValues.SetValues(user);
+                    context.SaveChanges();
+                }
+                else
+                {
+                    throw new Exception("Пользователь не найден");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Ошибка при обновлении пользователя: {ex.Message}", ex);
+            }
         }
 
         public void DeleteUser(int userId)
@@ -134,10 +155,29 @@ namespace MusicSchoolApp.Services
 
         public void UpdateCourse(Course course)
         {
-            context.Courses.Update(course);
-            context.SaveChanges();
+            try
+            {
+                // Найти существующую запись
+                var existingCourse = context.Courses.Find(course.Id);
+
+                if (existingCourse != null)
+                {
+                    // Обновить свойства
+                    context.Entry(existingCourse).CurrentValues.SetValues(course);
+                    context.SaveChanges();
+                }
+                else
+                {
+                    throw new Exception("Курс не найден");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Ошибка при обновлении курса: {ex.Message}", ex);
+            }
         }
 
+        
         public void DeleteCourse(int courseId, int userId)
         {
             var course = context.Courses.Find(courseId);
@@ -190,7 +230,6 @@ namespace MusicSchoolApp.Services
             }
         }
 
-        // Достижения
         public List<Achievement> GetAchievementsByUser(int userId)
         {
             return context.Achievements
@@ -206,7 +245,6 @@ namespace MusicSchoolApp.Services
             context?.Dispose();
         }
 
-        // Добавьте эти методы в класс DataService
 
         public bool IsLoginExists(string login)
         {
@@ -225,7 +263,7 @@ namespace MusicSchoolApp.Services
         {
             return context.Users
                 .Include(u => u.Role)
-                .Where(u => u.Role.RoleName == "Преподаватель" || u.Role.RoleName == "Старший преподаватель")
+                .Where(u => u.RoleId.HasValue && u.RoleId >= 4 && u.RoleId <= 7)
                 .ToList();
         }
 

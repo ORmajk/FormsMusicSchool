@@ -13,6 +13,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CheckoutForm));
             this.lblStudentName = new System.Windows.Forms.Label();
             this.lblContractDate = new System.Windows.Forms.Label();
             this.dtpContractDate = new System.Windows.Forms.DateTimePicker();
@@ -238,6 +239,7 @@
             this.Controls.Add(this.panelTop);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CheckoutForm";

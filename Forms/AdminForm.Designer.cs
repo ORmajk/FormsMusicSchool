@@ -104,6 +104,7 @@
             this.dgvCourses.Size = new System.Drawing.Size(840, 420);
             this.dgvCourses.TabIndex = 0;
             this.dgvCourses.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCourses_CellClick);
+            this.dgvCourses.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCourses_CellContentClick);
             // 
             // btnAddCourse
             // 

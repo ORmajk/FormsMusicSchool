@@ -23,7 +23,11 @@ namespace MusicSchoolApp.Forms
             SetupFilters();
             if (role != "Студент") btnAddToCart.Visible = false;
         }
-
+        private void CoursesForm_Load(object sender, EventArgs e)
+        {
+            // Загружаем все курсы
+            LoadCourses();
+        }
         private void LoadCourses()
         {
             using (var service = new DataService())

@@ -23,11 +23,9 @@ namespace MusicSchoolApp.Forms
 
         private void ConfigureDataGridViews()
         {
-            // Удаляем автоматическую привязку событий из дизайнера
-            // и настраиваем вручную
 
             // Настройка dgvUsers
-            dgvUsers.CellClick -= DgvUsers_CellClick; // Отписываемся сначала
+            dgvUsers.CellClick -= DgvUsers_CellClick;
             dgvUsers.CellClick += DgvUsers_CellClick;
 
             // Настройка dgvCourses
@@ -302,7 +300,6 @@ namespace MusicSchoolApp.Forms
         }
 
         // Обработчики для пользователей
-        // Обработчики для пользователей
         private void DgvUsers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -527,6 +524,11 @@ namespace MusicSchoolApp.Forms
         {
             service?.Dispose();
             base.OnFormClosed(e);
+        }
+
+        private void dgvCourses_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

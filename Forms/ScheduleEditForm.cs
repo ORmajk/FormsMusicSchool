@@ -47,9 +47,6 @@ namespace MusicSchoolApp.Forms
                 // Загрузка преподавателей
                 var teachers = _service.GetTeachers();
 
-                // Отладка - выводим количество преподавателей
-                MessageBox.Show($"Найдено преподавателей: {teachers?.Count ?? 0}", "Отладка",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 if (teachers != null && teachers.Any())
                 {
@@ -65,21 +62,6 @@ namespace MusicSchoolApp.Forms
                     cmbTeacher.ValueMember = "Id";
                     cmbTeacher.SelectedIndex = -1;
 
-                    // Отладка - проверяем что данные загрузились
-                    MessageBox.Show($"Загружено в комбобокс: {teacherList.Count} преподавателей",
-                        "Отладка", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Нет доступных преподавателей. Проверьте наличие пользователей с RoleId от 4 до 7.",
-                        "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                    // Для отладки - показываем всех пользователей и их роли
-                    var allUsers = _service.GetAllUsers();
-                    var rolesInfo = string.Join("\n", allUsers.Select(u =>
-                        $"ID: {u.Id}, ФИО: {u.Surname} {u.Name}, RoleId: {u.RoleId}, Role: {u.Role?.RoleName}"));
-                    MessageBox.Show($"Все пользователи в системе:\n{rolesInfo}", "Отладка",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 // Дни недели
